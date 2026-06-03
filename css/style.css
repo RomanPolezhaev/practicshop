@@ -20,7 +20,18 @@ header a {
   margin-right: 10px;
   text-decoration: none;
 }
-
+a {
+  text-decoration: none;
+}
+footer {
+  background: #222;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+}
 .catalog {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
