@@ -19,7 +19,7 @@ function renderHeader() {
   const user = getCurrentUser();
 
   header.innerHTML = `
-    <h1><a href="index.html">Магазин</a></h1>
+    <h1><a href="index.html">FakeStore</a></h1>
     <nav>
       <a href="index.html">Главная</a>
       <a href="cart.html">Корзина</a>
