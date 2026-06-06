@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <title>Магазин — Главная</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <header id="header">
@@ -12,6 +15,29 @@
 
   <main>
     <h2>Каталог товаров</h2>
+    <div id="filters">
+
+    <select id="category-filter">
+        <option value="all">Все категории</option>
+    </select>
+
+    <input
+        type="number"
+        id="min-price"
+        placeholder="Цена от"
+    >
+
+    <input
+        type="number"
+        id="max-price"
+        placeholder="Цена до"
+    >
+
+    <button id="apply-filters">
+        Применить
+    </button>
+
+</div>
     <div id="catalog"></div>
   </main>
     <script src="js/models.js"></script>

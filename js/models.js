@@ -1,10 +1,5 @@
-// TODO: класс пользователя
 
-class User {
-    // name, email, password
-}
-
-// TODO: класс товара
+// класс товара
 class Product {
     // id, title, price, description, image, category
     constructor(id, title, price, description, image, category) {
@@ -34,6 +29,22 @@ class Product {
             <h3>${this.title}</h3>
             <p>${this.price} $</p>
             <a href="product.html?id=${this.id}">Подробнее</a>
+        `;
+
+        return card;
+    }
+     renderDetails() {
+        const card = document.createElement("div");
+
+        card.innerHTML = `
+            <img src="${this.image}" alt="${this.title}">
+            <h2>${this.title}</h2>
+            <p>${this.description}</p>
+            <h3>${this.price}$</h3>
+
+            <button id="addToCart">Добавить в корзину</button>
+            <button id="toCatalog">В каталог</button>
+            <button id="toCart">В корзину</button>
         `;
 
         return card;

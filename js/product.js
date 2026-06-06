@@ -1,9 +1,49 @@
-// TODO: получить id товара из URL (например product.html?id=3)
+import { getProductById } from "./api.js";
+document.addEventListener("DOMContentLoaded", async () => {
+  // Получить id из URL
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id");
 
-// TODO: через API загрузить товар по ID
+  // Загрузить товар
+  const product = await getProductById(id);
+  console.log(product);
+  // Отрисовать товар через метод класса
+  const container = document.getElementById("product");
+  container.appendChild(product.renderDetails());
 
-// TODO: отрисовать карточку товара (фото, название, описание, цена)
+  // Добавить в корзину
+ document
+    .getElementById("addToCart")
+    .addEventListener("click", () => {
 
-// TODO: кнопка "Добавить в корзину" сохраняет товар в localStorage
+        let cart =
+            JSON.parse(localStorage.getItem("cart")) || [];
 
-// TODO: кнопки "В каталог" и "В корзину" работают как переходы
+        const existing =
+            cart.find(item => item.id === product.id);
+
+        if (existing) {
+            existing.quantity++;
+        } else {
+            cart.push({
+                id: product.id,
+                quantity: 1
+            });
+        }
+
+        localStorage.setItem(
+            "cart",
+            JSON.stringify(cart)
+        );
+
+        alert("Товар добавлен в корзину!");
+    });
+  // Переход в каталог
+  document.getElementById("toCatalog").addEventListener("click", () => {
+    window.location.href = "index.html";
+  });
+  // Переход в корзину
+  document.getElementById("toCart").addEventListener("click", () => {
+    window.location.href = "cart.html";
+  });
+});
