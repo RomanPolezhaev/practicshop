@@ -50,8 +50,11 @@ header a {
     transition: .2s;
 }
 
-header a:hover {
-    color: #2563eb;
+.catalog {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+  padding: 20px;
 }
 
 /* Заголовки */
